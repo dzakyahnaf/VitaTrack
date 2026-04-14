@@ -1,0 +1,21 @@
+/* src/components/ui/EmptyState.css */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 0;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.empty-message {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 300px;
+  margin-bottom: var(--space-4);
+}

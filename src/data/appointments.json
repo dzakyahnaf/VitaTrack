@@ -1,0 +1,24 @@
+[
+  {
+    "id": "appt-001",
+    "provider": "Dr. Sarah Chen",
+    "specialty": "General Practitioner",
+    "date": "2026-04-20",
+    "time": "09:30",
+    "type": "Check-up",
+    "status": "confirmed",
+    "location": "VitaClinic Central",
+    "notes": "Annual health review"
+  },
+  {
+    "id": "appt-002",
+    "provider": "James Wilson",
+    "specialty": "Nutritionist",
+    "date": "2026-04-25",
+    "time": "14:00",
+    "type": "Consultation",
+    "status": "pending",
+    "location": "Online Video Call",
+    "notes": "Discussing dietary changes for better energy levels"
+  }
+]

@@ -1,0 +1,80 @@
+/* src/pages/HabitTracker.css */
+.habit-tracker-page {
+  padding: var(--space-6) 0;
+}
+
+.habits-header {
+  margin-bottom: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.habits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.habits-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.habits-summary-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.progress-circle-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.progress-circle-bg {
+  fill: none;
+  stroke: var(--color-surface-2);
+  stroke-width: 10;
+}
+
+.progress-circle-value {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-percent {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .habits-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}

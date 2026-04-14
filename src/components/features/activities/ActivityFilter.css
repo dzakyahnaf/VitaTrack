@@ -1,0 +1,100 @@
+/* src/components/features/activities/ActivityFilter.css */
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  padding-left: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  transition: border-color var(--transition-fast);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+}
+
+.filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.pill-group {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.pill:hover {
+  background-color: var(--color-border);
+}
+
+.pill.active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+select.filter-select {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-2);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .filters-container {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,27 @@
+/* src/components/features/activities/ActivityCard.css */
+.activity-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.activity-info-row {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.activity-info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.activity-instructor {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: var(--space-2);
+}

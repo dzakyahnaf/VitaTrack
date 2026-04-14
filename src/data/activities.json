@@ -1,0 +1,80 @@
+[
+  {
+    "id": "act-001",
+    "title": "Morning Yoga Flow",
+    "category": "Yoga",
+    "difficulty": "Beginner",
+    "duration": 30,
+    "instructor": "Anika Sharma",
+    "rating": 4.8,
+    "enrolled": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800",
+    "description": "A gentle morning flow to awaken your body and set a positive tone for the day. Perfect for all levels.",
+    "tags": ["flexibility", "mindfulness", "morning"]
+  },
+  {
+    "id": "act-002",
+    "title": "HIIT Cardio Blast",
+    "category": "Fitness",
+    "difficulty": "Advanced",
+    "duration": 45,
+    "instructor": "Marcus Lee",
+    "rating": 4.6,
+    "enrolled": true,
+    "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800",
+    "description": "High-intensity interval training to maximise calorie burn and build endurance. Get ready to sweat!",
+    "tags": ["cardio", "strength", "weight-loss"]
+  },
+  {
+    "id": "act-003",
+    "title": "Deep Meditation",
+    "category": "Meditation",
+    "difficulty": "All Levels",
+    "duration": 20,
+    "instructor": "Sarah Drasner",
+    "rating": 4.9,
+    "enrolled": false,
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800",
+    "description": "A calming session focused on breathwork and mindfulness to reduce stress and anxiety.",
+    "tags": ["stress-relief", "mental-health", "focus"]
+  },
+  {
+    "id": "act-004",
+    "title": "Plant-Based Nutrition 101",
+    "category": "Nutrition",
+    "difficulty": "Beginner",
+    "duration": 60,
+    "instructor": "Dr. Emily Bloom",
+    "rating": 4.7,
+    "enrolled": false,
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800",
+    "description": "Discover the benefits of a plant-based diet and how to transition safely and effectively.",
+    "tags": ["healthy-eating", "vegan", "wellness"]
+  },
+  {
+    "id": "act-005",
+    "title": "Better Sleep Workshop",
+    "category": "Sleep",
+    "difficulty": "All Levels",
+    "duration": 40,
+    "instructor": "David Goggins",
+    "rating": 4.5,
+    "enrolled": false,
+    "image": "https://images.unsplash.com/photo-1511295742364-90314457582e?w=800",
+    "description": "Learn techniques to improve your sleep hygiene and get the rest you deserve.",
+    "tags": ["recovery", "rest", "circadian-rhythm"]
+  },
+  {
+    "id": "act-006",
+    "title": "Power Pilates",
+    "category": "Fitness",
+    "difficulty": "Intermediate",
+    "duration": 50,
+    "instructor": "Klara Vossen",
+    "rating": 4.7,
+    "enrolled": false,
+    "image": "https://images.unsplash.com/photo-1518611012118-296072bb5604?w=800",
+    "description": "Focus on core strength, posture, and flexibility with this dynamic Pilates session.",
+    "tags": ["core", "posture", "toning"]
+  }
+]

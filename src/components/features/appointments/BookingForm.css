@@ -1,0 +1,49 @@
+/* src/components/features/appointments/BookingForm.css */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.form-input {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: white;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.error-text {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.booking-form-actions {
+  margin-top: var(--space-2);
+  display: flex;
+  gap: var(--space-3);
+}

@@ -1,0 +1,7 @@
+[
+  { "id": "hab-001", "name": "Drink 8 glasses of water", "icon": "💧", "streak": 5 },
+  { "id": "hab-002", "name": "Meditate 10 minutes", "icon": "🧘", "streak": 3 },
+  { "id": "hab-003", "name": "30 min outdoor walk", "icon": "🚶", "streak": 7 },
+  { "id": "hab-004", "name": "Sleep by 10:30 PM", "icon": "🌙", "streak": 2 },
+  { "id": "hab-005", "name": "Eat 3 servings of veg", "icon": "🥗", "streak": 4 }
+]

@@ -1,0 +1,23 @@
+/* src/components/features/dashboard/ProgressChart.css */
+.progress-chart-container {
+  padding: var(--space-2);
+}
+
+.chart-title {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-dark);
+}
+
+/* Customizing Recharts Tooltip */
+.recharts-tooltip-cursor {
+  fill: var(--color-surface-2);
+}
+
+.recharts-bar-rectangle {
+  transition: opacity 0.3s ease;
+}
+
+.recharts-bar-rectangle:hover {
+  opacity: 0.8;
+}

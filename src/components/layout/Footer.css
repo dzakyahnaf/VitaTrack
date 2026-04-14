@@ -1,0 +1,43 @@
+/* src/components/layout/Footer.css */
+.footer {
+  padding: var(--space-8) 0 var(--space-6);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.footer-tagline {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-5);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}

@@ -1,0 +1,35 @@
+/* src/pages/Activities.css */
+.activities-page {
+  padding: var(--space-6) 0;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-6);
+}
+
+.activities-header {
+  margin-bottom: var(--space-6);
+}
+
+.activities-header h1 {
+  font-size: 2rem;
+  margin-bottom: var(--space-1);
+}
+
+.activities-header p {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .activities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
