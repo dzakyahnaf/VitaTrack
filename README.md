@@ -127,5 +127,63 @@ VitaTrack/
 └── README.md                   # Project Documentation
 ```
 
+## 🏛️ System Architecture
+
+VitaTrack adopts a modern Monorepo Full-Stack architecture. This separates concerns between the client and the server while maintaining them within the same codebase for streamlined development.
+
+- **Client-Side (Frontend)**: A Single Page Application (SPA) built with React.js. It manages local state via Context API and communicates asynchronously with the backend using Axios. Protected routes intercept unauthenticated attempts and enforce RBAC logic at the view layer.
+- **Server-Side (Backend)**: An Express.js REST API that handles business logic, JWT authentication, and data validation. It acts as the bridge between the React client and the PostgreSQL database.
+- **Data Layer (Supabase & Prisma)**: Hosted PostgreSQL database connected via Prisma ORM. Prisma ensures type safety across database operations and seamlessly manages schema migrations (`db push`).
+
+```mermaid
+graph LR
+    A[React.js Frontend] <-->|JSON / REST API| B(Express.js Backend)
+    B <-->|Prisma ORM| C[(PostgreSQL Supabase)]
+    
+    classDef frontend fill:#61dafb,stroke:#fff,color:#000
+    classDef backend fill:#68a063,stroke:#fff,color:#fff
+    classDef db fill:#336791,stroke:#fff,color:#fff
+    
+    class A frontend
+    class B backend
+    class C db
+```
+
+| Layer | Technology | Responsibilities |
+|-------|------------|------------------|
+| **Client-Side** | React.js (Vite) | Single Page Application (SPA), Context API for local state, Axios for API calls, and protected routes (RBAC). |
+| **Server-Side** | Express.js (Node.js) | REST API, JWT authentication, business logic, and request validation. Acts as the bridge. |
+| **Data Layer** | Supabase & Prisma | Hosted PostgreSQL database. Prisma ORM ensures type-safety and seamless schema migrations. |
+
+## 🗄️ Database Design
+
+The relational database is designed to handle user accounts, activities, tracking, and healthcare bookings efficiently:
+
+- **User**: Core entity storing authentication details (`email`, `passwordHash`) and `role` (Admin vs. User).
+- **Activity**: Represents available wellness sessions (e.g., Yoga, HIIT).
+- **Habit**: Tracks individual user habits, maintaining progress metrics and streak counters.
+- **Provider**: Healthcare professionals or clinics available for booking (managed strictly by Admins).
+- **Booking**: A junction entity linking a `User` to a `Provider` for a specific appointment date, time, and status.
+
+The relational database is designed to handle user accounts, activities, tracking, and healthcare bookings efficiently.
+
+| Entity | Role / Description | Relationships |
+|--------|--------------------|---------------|
+| 👤 **User** | Core entity storing authentication (`email`, `passwordHash`) and `role` (Admin/User). | 1:M with `Habit`, `Booking`, `Activity` |
+| 🏃 **Activity** | Represents available wellness sessions (e.g., Yoga, HIIT, Meditation). | M:1 with `User` (Enrollment) |
+| ✅ **Habit** | Tracks individual user habits, progress metrics, and streak counters. | M:1 with `User` |
+| 🏥 **Provider** | Healthcare professionals/clinics available for booking (managed by Admins). | 1:M with `Booking` |
+| 📅 **Booking** | Junction entity linking a `User` to a `Provider` for an appointment. | M:1 with `User` & `Provider` |
+
+## ⚙️ Backend Technology Selection
+
+**Node.js & Express.js** were selected as the backend foundation for several strategic reasons:
+
+| Justification | Detail |
+|---------------|--------|
+| 🟨 **Language Uniformity** | Using JavaScript on the backend allows for seamless context switching since the frontend is also built with JavaScript (React). This heavily accelerates full-stack feature development. |
+| 🚀 **Ecosystem & Performance** | Express.js is highly mature, lightweight, and boasts a massive middleware ecosystem (`jsonwebtoken`, `bcrypt`, `cors`), making it perfect for rapid REST API development. |
+| 🔗 **Prisma Integration** | Prisma ORM pairs incredibly well with Node.js. It offers a robust, auto-generated, type-safe query builder that aligns perfectly with JSON-heavy communication. |
+
 ## 📄 License
 This project is created for educational and portfolio purposes.
