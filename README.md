@@ -1,55 +1,131 @@
 # 🌱 VitaTrack — Personal Health & Wellbeing Dashboard
 
-VitaTrack is a premium, clean, and interactive web application designed to help users manage their health journey. Built with React and Vite, it focuses on providing a stunning user experience with atomic design principles.
+VitaTrack is a comprehensive Full-Stack web application designed to help users manage their health journey. It provides an intuitive dashboard, wellness activity enrollment, daily habit tracking, and a dedicated **Healthcare Booking System** with Role-Based Access Control (RBAC).
 
 ## ✨ Features
 
-- **📊 Dashboard Overivew**: At-a-glance health stats, upcoming appointments, and daily habit completion charts.
-- **🏃 Activities Catalog**: Browse and enrol in wellness activities including Yoga, HIIT, and Meditation.
-- **✅ Daily Habit Tracker**: Track daily rituals with a visual progress ring and streak system.
-- **📅 Appointment Management**: Easily book and manage health check-ups and doctor visits.
-- **👤 User Profile**: Personalize goals and manage account details.
+- **🛡️ Authentication & Security**: JWT-based login, registration, and protected routes.
+- **👥 Role-Based Access Control (RBAC)**: 
+  - **Admins** have exclusive access to manage (Add, Edit, Delete) Healthcare Providers.
+  - **Users** can view providers and book appointments securely.
+- **🏥 Healthcare Booking**: Find medical professionals by specialty and schedule appointments.
+- **📊 Dashboard Overview**: At-a-glance health stats, upcoming appointments, and daily habit progress.
+- **🏃 Activities Catalog**: Browse and enrol in wellness activities (Yoga, HIIT, Meditation).
+- **✅ Daily Habit Tracker**: Track daily rituals with visual progress.
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 18 (Functional Components + Hooks)
-- **State Management**: React Context API + useReducer
-- **Build Tool**: Vite
-- **Styling**: Vanilla CSS with modern Design Tokens
-- **Icons**: Emojis (Native, high performance)
-- **Charts**: Recharts
-- **Routing**: React Router v6
+- **Frontend**: React.js 18, Vite, React Router v6, Axios, Recharts
+- **Backend**: Node.js, Express.js, JWT (JSON Web Tokens), bcrypt
+- **Database**: PostgreSQL (hosted on Supabase)
+- **ORM**: Prisma (v7.x) with `@prisma/adapter-pg`
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+## 🚀 Getting Started: How to Run from Scratch
 
-### Installation
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Build for production:
-   ```bash
-   npm run build
-   ```
+Follow these instructions to run the full-stack project locally on your machine.
 
-## 📂 Project Structure
+### 1. Prerequisites
+- **Node.js**: Ensure you have Node.js (v18 or higher recommended) installed.
+- **Git**: To clone the repository.
+- **Supabase Account**: (Optional, if you want to use your own database instead of the provided connection).
 
-- `src/components/ui`: Generic reusable UI atoms (Button, Card, Modal, etc.)
-- `src/components/layout`: App-level layout shells (Navbar, Footer)
-- `src/components/features`: Domain-specific components grouped by feature
-- `src/context`: Global state management logic
-- `src/hooks`: Custom utility hooks (`useFetch`, `useLocalStorage`, etc.)
-- `src/pages`: Route-level page components
-- `src/styles`: Design tokens and global CSS variables
+### 2. Clone the Repository
+```bash
+git clone https://github.com/dzakyahnaf/VitaTrack.git
+cd VitaTrack
+```
+
+### 3. Setup the Backend (Server & Database)
+
+The backend is located in the `server` folder. It uses Express.js and Prisma ORM to connect to the PostgreSQL database.
+
+```bash
+# Navigate to the backend folder
+cd server
+
+# Install backend dependencies
+npm install
+```
+
+**Environment Variables:**
+Create a `.env` file in the `server` directory (if it doesn't already exist) and configure your database and JWT secret:
+```env
+PORT=5000
+DATABASE_URL="postgresql://[USER]:[PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres"
+JWT_SECRET="supersecret_vita_track_key_for_dev_only"
+```
+*(Note: Use port `5432` for direct connection which is required for database migrations).*
+
+**Initialize Database & Seed Data:**
+Sync the Prisma schema with your database and generate the initial seed data (Providers and Admin account):
+```bash
+# Push schema to the database and generate Prisma Client
+npx prisma db push
+
+# Seed the database with default providers and the admin account
+node prisma/seed.js
+```
+
+**Start the Backend Server:**
+```bash
+# Start the backend in development mode (using nodemon)
+npm run dev
+```
+*The backend should now be running on `http://localhost:5000`.*
+
+### 4. Setup the Frontend (Client)
+
+Open a **new, separate terminal tab/window**, navigate to the root directory of the project, and start the React frontend.
+
+```bash
+# Make sure you are in the root directory (VitaTrack/)
+# Install frontend dependencies
+npm install
+
+# Start the Vite development server
+npm run dev
+```
+*The frontend should now be running on `http://localhost:5173`.*
+
+---
+
+## 🔑 Default Credentials
+
+If you ran `node prisma/seed.js` during the setup, the following **Admin** account is available:
+
+- **Email:** `admin@vitatrack.com`
+- **Password:** `admin123`
+
+*Login with this account to see the **Manage Providers** menu.*
+
+To test a regular **User** account, simply click **Register** on the application's login page and create a new account. Regular users will not see the admin panels and will be restricted to booking appointments only.
+
+---
+
+## 📂 Project Architecture
+
+```
+VitaTrack/
+├── server/                     # BACKEND (Node.js/Express)
+│   ├── prisma/                 # Database Schema & Seed scripts
+│   ├── src/
+│   │   ├── controllers/        # Business logic (Auth, Providers, etc.)
+│   │   ├── middleware/         # JWT Verification & RBAC rules
+│   │   ├── routes/             # Express API Routes
+│   │   └── index.js            # Main Express server entry point
+│   ├── .env                    # Backend configuration
+│   └── package.json
+├── src/                        # FRONTEND (React.js/Vite)
+│   ├── components/             # Reusable UI (Buttons, Cards) & Layouts
+│   ├── context/                # Global AuthContext
+│   ├── pages/                  # Views (Dashboard, HealthcareBooking, ManageProviders)
+│   ├── App.jsx                 # Route configurations (Protected Routes)
+│   └── index.css               # Global Design Tokens & Utilities
+├── package.json                # Frontend dependencies
+└── README.md                   # Project Documentation
+```
 
 ## 📄 License
-This project is created for personal use and educational purposes.
+This project is created for educational and portfolio purposes.
